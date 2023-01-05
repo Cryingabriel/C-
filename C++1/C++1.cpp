@@ -1,12 +1,21 @@
 // C++1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <stdio.h>;
+#include <stdio.h>;// this makes it so I can type printf instead of cout
 using namespace std;
 int main()
 {
-    printf("MANY YEARS AGO PRINCE DARKNESS GANNON STOLE ONE OF THE TRIFORCE WITH POWER. PRINCESS ZELDA HAD ONE OF THE TRIFORCE WITH WISDOM. SHE DIVIDED IT INTO 8 UNITS TO HIDE IT FROM GANNON BEFORE SHE WAS CAPTURED. GO FIND THE 8 UNITS LINK TO SAVE HER");
-    
+    printf("MANY YEARS AGO PRINCE\n");
+    printf("DARKNESS GANNON STOLE\n");
+    printf("ONE OF THE TRIFORCE WITH\n");
+    printf("POWER. PRINCESS ZELDA\n");
+    printf("HAD ONE OF THE TRIFORCE\n ");
+    printf("WITH WISDOM SHE DIVIDED\n");
+    printf("IT INTO 8 UNITS TO HIDE\n");
+    printf("IT FROM GANNON BEFORE\n");
+    printf("SHE WAS CAPTURED.\n");
+    printf("GO FIND THE 8 UNITS\n");
+    printf("LINK TO SAVE HER\n");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
