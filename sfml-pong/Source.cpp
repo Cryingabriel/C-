@@ -27,6 +27,9 @@ int main() {
     sf::CircleShape ball(15);
     ball.setFillColor(sf::Color(200, 50, 50));
     ball.setPosition(300, 250);
+    // player scores
+    float point1 = 0;
+    float point2 = 0;
     //################### HOLD ONTO YOUR BUTTS, ITS THE GAME LOOP###############################################################
     while (renderWindow.isOpen()) {//keep window open until user shuts it down
         while (renderWindow.pollEvent(event)) { //look for events
@@ -76,6 +79,7 @@ int main() {
         if (bally < 0 || bally > 485) {
             yvel *= -1;
         }
+        
         //render section-----------------------------------------
         renderWindow.clear(); //wipes screen, without this things smear
         renderWindow.draw(paddle1); //you gotta drew each object
