@@ -72,6 +72,12 @@ int main() {
             //add effect here
             xvel *= -1;
         }
+        if (paddle1.getPosition().y < 0 || paddle1.getPosition().y > 400) {
+            paddle1.move(0, 0);
+        }
+        if (paddle2.getPosition().y < 0 || paddle2.getPosition().y > 400) {
+            paddle2.move(0, 0);
+        }
         // reflect off left and right walls
         if (ballx < 0 || ballx > 585) {
             xvel *= -1;
@@ -79,8 +85,14 @@ int main() {
         if (bally < 0 || bally > 485) {
             yvel *= -1;
         }
-        
+        if (ballx <= 0) {
+            point2 += 1;
+        }
+        if(ballx >= 585) {
+            point1 += 1;
+        }
         //render section-----------------------------------------
+        
         renderWindow.clear(); //wipes screen, without this things smear
         renderWindow.draw(paddle1); //you gotta drew each object
         renderWindow.draw(paddle2);
