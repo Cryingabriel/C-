@@ -132,6 +132,7 @@ int main()
             isOnGround = true;
             ypos = 700 - 30; //counteract gravity
         }
+        if (xpos + 30 >= 30)
         //actually move the player!---------------------------------------------------------
         xpos += vx;
         ypos += vy;
