@@ -40,6 +40,31 @@ int main()
         cout << "Ferb I know what we're going to do today." << endl;
     }
 
+    char per;
+    cout << "Who do you like best (b)art simpson, (s)cooby doo, (r)ick, (d)affy duck, or (p)henious." << endl;
+    cin >> per;
+    switch (per) {
+    case 'b':
+        cout << "Eat my pants." << endl;
+        break;
+    case 's':
+        cout << "Scooby dooby doo." << endl;
+        break;
+    case 'r':
+        cout << "Wubba lubba dub dub." << endl;
+        break;
+    case 'd':
+        cout << "Sufferin' succotash!" << endl;
+        break;
+    case 'p':
+        cout << "Ferb I know what we're going to do today." << endl;
+        break;
+    }
+
+
+
+
+
     char des;
     cout << "Do you want (i)ce cream or (c)andy?" << endl;
     cin >> des;
@@ -68,6 +93,7 @@ int main()
             cout << "I would recommend Starbursts." << endl;
         }
     }
+
 
 }
 
