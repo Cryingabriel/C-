@@ -7,9 +7,10 @@ class Brick {
 public:// All of your code can see it
 	// functions
 	Brick(int x, int y);
-	void draw();
+	void draw(sf::RenderWindow& window);
 	void killb();
 	bool sid();
+	int collision(int bx, int by);
 private:// only class can see it
 	//Variables
 	int xpos;
@@ -17,7 +18,7 @@ private:// only class can see it
 	int width;
 	int height;
 	bool dead;
-
+	sf::RectangleShape brick;
 };
 
 
@@ -33,7 +34,20 @@ int main()
 	paddle1.setFillColor(sf::Color::Blue); //other colors: https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Color.php
 	paddle1.setPosition(250.0f, 500.0f); //set position: this is where the top left corner will be
 
+	//Ball Variables
+	// Ball Variables
+	float bx = 300;
+	float by = 250;
+	float xvel = .01;
+	float yvel = .03;
+	sf::CircleShape ball(15);
+	ball.setFillColor(sf::Color(200, 50, 50));
+	ball.setPosition(300, 250);
 
+	//Ball Physics
+	bx += xvel;
+	by += yvel;
+	ball.setPosition(bx, by);
 
 	// instantiate objects
 	Brick b1(200, 200);
@@ -48,19 +62,18 @@ int main()
 			//KEYBOARD INPUT (just one key to start
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) { //checks if "A" is pressed
 				paddle1.move(-5, 0); //move the rectangle 5 pixels Left on the x axis
-				cout << "rectangle moving ;eft" << endl; //for Cai's testing, you can take this out
+				cout << "rectangle moving left" << endl; //for Cai's testing, you can take this out
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) { //checks if "A" is pressed
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { //checks if "D" is pressed
 				paddle1.move(5, 0); //move the rectangle 5 pixels Right on the x axis
 				cout << "rectangle moving right" << endl; //for Cai's testing, you can take this out
 			}
 
 		}
-		b1.draw();
 		// render section
 		renderWindow.clear();
 		renderWindow.draw(paddle1);
-		renderWindow.draw(b1);
+		b1.draw(renderWindow);
 		renderWindow.display();
 	}
 
@@ -72,7 +85,23 @@ Brick::Brick(int x, int y) {//constructer
 	xpos = x;
 	ypos = y;
 	dead = false;
+	brick.setSize(sf::Vector2f(width, height));
+	brick.setFillColor(sf::Color::Red);
 }
-void Brick::draw() {}
+void Brick::draw(sf::RenderWindow& window) { 
+	brick.setPosition(xpos, ypos);
+	window.draw(brick);
+}
+int Brick::collision(int bx, int by) {
+
+	//Ball Collision(brick)
+	if (bx - 10 < brick.getPosition().x + 100 && by > brick.getPosition().y && by < brick.getPosition().y ) {
+		cout << "paddle1 collision" << endl;
+		//add sound effect here
+		yvel *= -1;
+	}
+	return bx;
+	return by;
+}
 void Brick::killb() { dead = true; }
 bool Brick::sid() { return dead; }
