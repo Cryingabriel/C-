@@ -26,7 +26,7 @@ int main() {
 			else keys[UP] = false;
 		}
 		//physics section------------------------------------
-		player.draw(screen);
+		player.jump(keys);
 		//render section-------------------------------------
 		screen.clear();
 		player.draw(screen);
