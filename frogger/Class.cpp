@@ -32,6 +32,13 @@ void frog::jump(bool* keys) {
 	else
 		yvel = 0;
 	ypos += yvel;
+	if (keys[LEFT] == true)
+		xvel = -50;
+	else if (keys[RIGHT] == true)
+		xvel = 50;
+	else
+		xvel = 0;
+	xpos += xvel;
 }
 
 //this function kills the frog

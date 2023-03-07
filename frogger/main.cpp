@@ -3,6 +3,8 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
 using namespace std;
+int timer = 0;
+
 
 int main() {
 
@@ -20,13 +22,36 @@ int main() {
 		while (screen.pollEvent(event)){//look for user input
 			if (event.type == sf::Event::Closed) // check if the game window is closed
 				screen.close();
+			//UP
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				keys[UP] = true;
 			}
 			else keys[UP] = false;
+			//DOWN
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+				keys[DOWN] = true;
+			}
+			else keys[DOWN] = false;
+			//Left
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				keys[LEFT] = true;
+			}
+			else keys[LEFT] = false;
+			//Right
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				keys[RIGHT] = true;
+			}
+			else keys[RIGHT] = false;
 		}
 		//physics section------------------------------------
-		player.jump(keys);
+		
+		timer++;
+		if (timer > 4000) {
+			player.jump(keys);
+			timer = 0;
+		}
+
+
 		//render section-------------------------------------
 		screen.clear();
 		player.draw(screen);
