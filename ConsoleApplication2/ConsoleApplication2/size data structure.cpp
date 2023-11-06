@@ -36,11 +36,26 @@ void display() {
     }
 }
 
-void 
+void size() {
+    if (top >= 0) {
+        int len = 0;
+        for (int i = top; i >= 0; i--) {
+            len++;
+        }
+        cout << "Size of the stack: " << len << "\n";
+    }
+    else
+        cout << "Stack is empty";
+}
 
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    push("T-shirts");
+    push("headsets");
+    push("iphone");
+    push("yes");
+    size();
+
 }
 
